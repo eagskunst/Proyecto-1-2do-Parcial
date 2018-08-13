@@ -81,6 +81,7 @@ public class Administrador {
 					imprimir("Escoja una opción válida.");
 					break;
 				}
+			imprimir("Presione enter para regresar al menu.");
 			s.nextLine();
 		}while(op!= 8);
 		s.close();
@@ -218,12 +219,12 @@ public class Administrador {
 						cant_v[k] = cant;
 					}
 					else {
-						System.out.println("Error. El producto con el codigo '"+cod+"' posee una existencia menor a "+cant+".");
+						imprimir("Error. El producto con el codigo '"+cod+"' posee una existencia menor a "+cant+".");
 						break;
 					}
 				}
 			}
-			System.out.println("Desea agregar otro producto a la factura? Si (1): ");
+			imprimir("Desea agregar otro producto a la factura? Si (1): ");
 			if(s.nextInt() != 1) {
 				vender = false;
 			}
@@ -232,6 +233,9 @@ public class Administrador {
 			facturas[f] = new Factura(productosVender,cant_v,ced);
 			facturas[f].mostrarCalculo();
 			f+=1;
+		}
+		else {
+			imprimir("Venta cancelada.");
 		}
 	}
 
